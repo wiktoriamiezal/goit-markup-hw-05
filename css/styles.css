@@ -87,13 +87,13 @@ body {
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navigation-link:focus,
 .navigation-link:hover,
 .header-contacts:focus,
 .header-contacts:hover {
   color: var(--OCEAN);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navigation {
   display: flex;
@@ -108,20 +108,21 @@ body {
 }
 .current-site {
   position: relative;
+  color: var(--IRIS);
 }
 .current-site::after {
   content: '';
   position: absolute;
+  left: 0;
+  bottom: -1px;
   height: 4px;
   width: 100%;
   background-color: var(--IRIS);
   border-radius: 2px;
   top: 69px;
-  left: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.active-link {
-  color: var(--IRIS);
-}
+
 /* index */
 
 .hero-image {
@@ -159,11 +160,11 @@ body {
   display: block;
   margin: 0 auto;
   min-width: 169px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-order:focus,
 .btn-order:hover {
   background: var(--OCEAN);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .visually-hidden {
   position: absolute;
@@ -291,6 +292,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-svg {
   fill: var(--CLOUD);
@@ -298,7 +300,6 @@ body {
 .social-link:hover,
 .social-link:focus {
   background-color: var(--OCEAN);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* portfolio */
 
@@ -325,6 +326,8 @@ body {
   border: 1px solid var(--CORNFLOWER);
   background-color: var(--CLOUD);
   padding: 12px 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-portfolio-menu:focus,
 .btn-portfolio-menu:hover {
@@ -333,8 +336,6 @@ body {
   border: 1px solid transparent;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08),
     0px 3px 1px 0px rgba(0, 0, 0, 0.1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-pic-heading {
@@ -418,6 +419,8 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--LIGHT-SLATE);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-link:hover,
@@ -425,8 +428,6 @@ body {
   cursor: pointer;
   border-color: var(--OCEAN);
   color: var(--OCEAN);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customer-svg {
   fill: currentColor;
@@ -489,6 +490,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-svg {
   fill: var(--CLOUD);
@@ -497,13 +499,12 @@ body {
 .footer-link:focus {
   cursor: pointer;
   background-color: var(--GREEN);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* modal */
 
 .backdrop {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(46, 47, 66, 0.4);
   position: fixed;
   left: 0;
   top: 0;
@@ -526,7 +527,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   background-color: var(--DAIRY);
   border-radius: 4px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
@@ -543,16 +544,28 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--CORNFLOWER);
-  padding: 6px;
+  padding: 0;
   position: absolute;
   top: 8px;
   right: 8px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  margin-top: 24px;
-  margin-right: 24px;
+  top: 24px;
+  right: 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .closing-icon {
-  position: absolute;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   fill: var(--NAVY-BLUE);
+}
+.closing-button:focus,
+.closing-button:hover {
+  background-color: var(--OCEAN);
+  border: none;
+}
+.closing-icon:focus,
+.closing-icon:hover {
+  fill: var(--WHITE);
 }
